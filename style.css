@@ -1,0 +1,71 @@
+/*
+    Color Palette Based On The Disability Pride Flag Colors
+      
+      black   #5E605F 
+      red     #DD7083 
+      yellow  #F0E067 
+      white   #E9E9E9 
+      blue    #69C6E5 
+      green   #08B37C
+*/
+
+/* Menu code starts here */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #E9E9E9;
+  color: #5E605F;
+  font-size: 17px;
+}
+
+header {
+  background-color: #5E605F;
+  color: #E9E9E9;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+main {
+  flex: 2;
+}
+
+article {
+  padding: 20px;
+  border: 2px solid #5E605F;
+  border-radius: 10px;
+}
+
+article p {
+  text-align: left;
+  text-indent: 20px;
+  line-height: 2;
+  margin: 0;
+}
+
+article h2,
+h3 {
+  text-align: center;
+}
+
+.post-meta {
+  font-size: 10px;
+  text-align: right;
+  text-indent: 0;
+}
+
+footer {
+  background-color: #5E605F;
+  color: #E9E9E9;
+  text-align: center;
+  padding: 20px;
+}
