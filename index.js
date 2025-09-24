@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./the-spot.html");
+  loadArticle("./like-an-animal.html");
 }
 
 window.onload = () => main();
