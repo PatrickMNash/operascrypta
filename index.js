@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./like-an-animal.html");
+  loadArticle("./epistle-10-08-2025.html");
 }
 
 window.onload = () => main();
