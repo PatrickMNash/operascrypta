@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./epistle-10-08-2025.html");
+  loadArticle("./sunbathing-in-a-cemetery.html");
 }
 
 window.onload = () => main();
