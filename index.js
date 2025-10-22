@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./sunbathing-in-a-cemetery.html");
+  loadArticle("./the-self-inflicted-crisis.html");
 }
 
 window.onload = () => main();
