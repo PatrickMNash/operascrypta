@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./the-self-inflicted-crisis.html");
+  loadArticle("./zombie-virus-squirrel.html");
 }
 
 window.onload = () => main();
