@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./zombie-virus-squirrel.html");
+  loadArticle("./epistle-11-12-2025.html");
 }
 
 window.onload = () => main();
