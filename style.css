@@ -190,3 +190,8 @@ footer {
 #monetize p {
   text-align: center;
 }
+
+.center {
+  text-align: center;
+  text-indent: 0%;
+}
