@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./aught-cleaver.html");
+  loadArticle("./epistle-12-03-2025.html");
 }
 
 window.onload = () => main();
