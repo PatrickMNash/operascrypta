@@ -195,3 +195,17 @@ footer {
   text-align: center;
   text-indent: 0%;
 }
+
+.archive-list span {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.archive-list a {
+  text-decoration: none;
+  color: #5E605F;
+}
+
+.archive-list a:hover {
+  color: #DD7083;
+  font-size: 110%;
+}

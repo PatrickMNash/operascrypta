@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./vantacashmere.html");
+  loadArticle("./epistle-01-07-2026.html");
 }
 
 window.onload = () => main();
