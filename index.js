@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./epistle-01-07-2026.html");
+  loadArticle("./taop-part-one.html");
 }
 
 window.onload = () => main();
