@@ -15,7 +15,7 @@ function loadArticle (articleName) {
 }
 
 function main () {
-  loadArticle("./taop-part-one.html");
+  loadArticle("./the-sav-story-one.html");
 }
 
 window.onload = () => main();
