@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Vantacashmere</title>
+		<meta name="description" content="Vantacashmere">
+		<link rel="alternate" href="/operascrypta/feed/feed.xml" type="application/atom+xml" title="operascrypta">
+		
+		
+		
+		<style>/* This is an arbitrary CSS string added to the bundle */
+/*
+    Color Palette Based On The Disability Pride Flag Colors
+      
+      black   #5E605F 
+      red     #DD7083 
+      yellow  #F0E067 
+      white   #E9E9E9 
+      blue    #69C6E5 
+      green   #08B37C
+
+			Arial, sans-serif;
+*/
+
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	/*--font-family: Arial, sans-serif;*/
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #B7B9B8;
+	--color-gray-50: #A6A8A7;
+	--color-gray-90: #5E605F;
+
+	--background-color: #E9E9E9;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #DD7083;
+	--text-color-link-active: #DD7083;
+	--text-color-link-visited: #DD7083;
+
+	--syntax-tab-size: 2;
+}
+
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #FFFFFF;
+		--color-gray-50: #F2F2F2;
+		--color-gray-90: #E9E9E9;
+
+		/* --text-color is assigned to --color-gray-_ above*/
+		--text-color-link: #DD7083;
+		--text-color-link-active: #DD7083;
+		--text-color-link-visited: #DD7083;
+
+		--background-color: #5E605F;
+	}
+}
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images via https://www.zachleat.com/web/fluid-images/ */
+img {
+	max-width: 100%;
+}
+
+img[width][height] {
+	height: auto;
+}
+
+img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+}
+
+video,
+iframe {
+	width: 100%;
+	height: auto;
+}
+
+iframe {
+	aspect-ratio: 16/9;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+p {
+	line-height: 2;
+}
+
+li {
+	line-height: 2;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+a {
+	text-shadow: 0.1px 0.1px 0.5px #69C6E5;
+	text-decoration: none;
+}
+
+main,
+footer {
+	padding: 1rem;
+}
+
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+#skip-link {
+	text-decoration: none;
+	background: var(--background-color);
+	color: var(--text-color);
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--color-gray-90);
+	border-radius: 2px;
+}
+
+/* Prevent visually-hidden skip link fom pushing content around when focused */
+#skip-link.visually-hidden:focus {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	/* Ensure it is positioned on top of everything else when it is shown */
+	z-index: 999;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+.links-nextprev>* {
+	flex-grow: 1;
+}
+
+.links-nextprev-next {
+	text-align: right;
+}
+
+table {
+	margin: 1em 0;
+}
+
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375;
+	/* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+}
+
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1em;
+}
+
+.home-link {
+	flex-grow: 1;
+	font-size: 1em;
+	/* 16px /16 */
+	font-weight: 700;
+}
+
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	gap: .5em 1em;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.nav-item {
+	display: inline-block;
+}
+
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	counter-reset: start-from var(--postlist-index);
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em;
+	/* 13px /16 */
+	color: var(--color-gray-90);
+}
+
+.postlist-date {
+	word-spacing: -0.5px;
+}
+
+.postlist-link {
+	font-size: 1.1875em;
+	/* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+
+.postlist-item>.post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.post-metadata time {
+	margin-right: 1em;
+}
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}</style>
+		
+
+		<!-- Google Analytics -->
+		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QLRNJV27Q1"></script>
+		
+		<!-- End Google Analytics -->
+
+	</head>
+	<body>
+		<a href="#main" id="skip-link" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<h1 id="operascrypta"><a href="/operascrypta/" class="home-link">operascrypta</a></h1>
+			<nav>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/operascrypta/">Home</a></li>
+					<li class="nav-item"><a href="/operascrypta/arkheion/">Arkheion</a></li>
+					<li class="nav-item"><a href="/operascrypta/newsletter/">Newsletter</a></li>
+					<li class="nav-item"><a href="/operascrypta/about/">About</a></li>
+					<li class="nav-item"><a href="/operascrypta/feed/feed.xml">Feed</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main">
+			<heading-anchors>
+				
+
+
+<h1 id="vantacashmere">Vantacashmere</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="2025-12-17">17 December 2025</time></li>
+	<li><a href="/operascrypta/tags/fiction/" class="post-tag">fiction</a>, </li>
+	<li><a href="/operascrypta/tags/vantacashmere/" class="post-tag">vantacashmere</a></li>
+</ul>
+
+<p>A lone hiker stood petrified on the dirt trail. Moonless, overcast night birthed a suffocating pitch-black that
+devoured
+the shape of the world. The vast forest vanished beyond a sinister curtain of dense pines pressing in on either
+side. A
+low, guttural growl seeped out of the darkness, penetrating deep inside and shaking her bones—her limbs began to
+tremble. A surge of adrenaline prickled the hair on her neck; her stomach cramped as her heart pounded in her ears
+like
+a caged animal violently throwing itself against the walls of its confinement.</p>
+<p><em>Calm down, Charlotte. It's probably just the wind</em>, she desperately told herself. She forced a breath, holding
+it as
+she
+strained to penetrate the abyss of night, intently listening. It was deathly silent. Then, the sound came again: a
+grotesque, gurgling roar that tore the silence and slammed into her chest. <em>That's not the wind. Run!</em> Courage
+abandoned
+her. She scrambled to turn around, pushed off the dirt, and ran blindly toward the trailhead. Her red cashmere scarf
+trailed behind, a useless, fluttering crimson banner against the consuming black.</p>
+<p>Trees snapped with thunderous reports; the foliage shredded violently behind Charlotte as something massive rushed
+from
+the forest in pursuit. She felt a menacing malevolence behind her, driving her. <em>It can't be that far to the
+trailhead
+and the road.</em> Her lungs burned, she could taste iron, and each stride felt like muscles ripping. An
+aberrational
+chill
+clawed at the back of her neck, raising gooseflesh. With every frantic exhale, she could see her breath crystalizing
+in
+the consuming black.</p>
+<p>The trailhead lights glowed ahead, a sharp, defiant beacon of hope barely one hundred yards away. Charlotte risked a
+glance over her shoulder. There was no forest, no trail, and no monstrous predator pursuing her—only absolute
+emptiness.
+It wasn't the darkness of the woods; it was the black of a pure vacuum that devoured light and matter alike. It was
+the
+nothingness itself running her down. She tried to pump her arms faster, but it was too late; the void was upon her.
+Sensation vanished: she couldn't feel her body, the air against her skin, or the earth beneath her feet. She tore
+her
+throat open in a pitiful attempt at a scream, but the world was silent, and only a terrifying absence of sound
+escaped.</p>
+<p>Sheriff Alan Warne Vidoc pulled his Interceptor next to Deputy Ian Child's cruiser in the trailhead parking area.
+Child
+rushed over to greet the Sheriff. &quot;What we got, Child,&quot; Vidoc asked, climbing out of the SUV.</p>
+<p>&quot;Her car's here, locked. No sign of Charlotte, no struggle. Her mother said she hasn't answered her phone since last
+night.&quot;</p>
+<p>Vidoc nodded. &quot;Dogs?&quot;</p>
+<p>&quot;On their way. I waited for you before checking the trail.&quot;</p>
+<p>&quot;Let's have a look.&quot;</p>
+<p>The two men proceeded down the path carefully searching for anything out of the ordinary. About one hundred and
+fifty
+yards down the trail they stopped dead. Ahead, the forest was scarred by a path of destruction leading out onto the
+trail. Trees were snapped at the base, and the earth was churned up, as if a localized, violent tornado had
+torn
+a swath ten yards wide out of the woods. &quot;What the hell you reckon did that?&quot; Child muttered, staring.</p>
+<p>&quot;Get the CSTs back here and tape this off.&quot;</p>
+<p>Child unspooled the barricade tape. Vidoc, scanning the woods, froze, his eyes locked on a spot closer to the
+trailhead.
+He deliberately trekked back up the trail and crouched, slipping on a pair of evidence collection gloves. &quot;You got
+something,
+Sheriff?&quot; Child called. Vidoc didn't reply, just snapped a quick series of photos with his phone before carefully
+lifting the object. Child walked up beside him and blinked. In the Sheriff's gloved hand was a piece of fabric so
+profoundly black it looked like a tear in reality. &quot;I think it's a scarf,&quot; Vidoc replied quietly.</p>
+<p>&quot;Her mother said she was wearing a red cashmere one. That thing is blacker than midnight. And that smell…&quot; Child
+wrinkled his nose, leaning closer.</p>
+<p>&quot;Burnt hair,&quot; Vidoc stated, cutting him off, his gaze fixed on the item. &quot;And sulfur.&quot; The two men looked up,
+staring at each
+other,
+silent in their horrific bewilderment.</p>
+
+<ul class="links-nextprev"><li class="links-nextprev-prev">← Previous<br> <a href="/operascrypta/arkheion/0x7E9/0b1101/">Epistle: Brumating in the Empire of Lies (December 2-3, 2025)</a></li><li class="links-nextprev-next">Next →<br><a href="/operascrypta/arkheion/0x7EA/0b0000/">Epistle: Forgotten Holidays and Silent Victories (January 5-7, 2026)</a></li>
+</ul>
+
+			</heading-anchors>
+		</main>
+
+		<footer>
+			<p>© 2025-2026 operascrypta & Patrick M. Nash. All rights reserved.</p>
+		</footer>
+
+		<!-- This page `/arkheion/0x7E9/0b1110/` was built on 2026-02-24T22:07:08.889Z -->
+		<script type="module" src="/operascrypta/dist/Z9UXcFVVCP.js"></script>
+	</body>
+</html>
